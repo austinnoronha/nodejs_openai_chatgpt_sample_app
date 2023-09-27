@@ -20,11 +20,9 @@
   </a>
 </p>
 
-This is a simple node.js app (for learning only) + OpenAI ChatGPT SearchBot that you can use as a starter project project to learn. 
+This is a simple node.js app (for learning only) + OpenAI ChatGPT SearchBot that you can use as a starter project to learn. 
 
-It includes jade views, openai lib & server running on port 3000.
-
-Also additionally I have added a POSTMAN test collection.
+It includes jade views, OpenAI lib & server running on port 3000.
 
 ## Sample Application
 
