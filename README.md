@@ -1,4 +1,4 @@
-<h1 align="center">Express + Node.js simple application to get you started! 👋</h1>
+<h1 align="center">ChatGPT + Node.js Simple SearchBot! 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg" />
@@ -20,10 +20,15 @@
   </a>
 </p>
 
-> This is a simple express & node.js app (for learning only) that you can use as a starter project project to learn. 
-It includes jade views, routers index & users, server running on port 3000.
+This is a simple node.js app (for learning only) + OpenAI ChatGPT SearchBot that you can use as a starter project project to learn. 
+
+It includes jade views, openai lib & server running on port 3000.
 
 Also additionally I have added a POSTMAN test collection.
+
+## Sample Application
+
+<img scr="https://github.com/austinnoronha/UI-References-and-Screenshots/blob/9b512be245ab3c2c07972784b6cccc1a605df45a/common-images/Nodejs%20OpenAI%20ChatGPT%20SearchBot%20Sample%20App%20with%20Bootstrap%20HTML%20CSS.png" title="">
 
 ### 🏠 [Homepage](https://github.com/austinnoronha/express-and-nodejs-sample-app)
 

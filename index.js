@@ -28,6 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// API GET to handle search requests
 app.post("/search-bot", (req, res) => {
   const { my_prompt } = req.body;
 
@@ -55,6 +56,7 @@ app.post("/search-bot", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    myLog("Server started on http://localhost:3000");
+// app listening on port 3000
+app.listen(process.env.PORT || 3000, () => {
+    myLog(`Server started on http://localhost:${process.env.PORT || 3000}`);
 });
