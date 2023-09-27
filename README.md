@@ -28,9 +28,7 @@ Also additionally I have added a POSTMAN test collection.
 
 ## Sample Application
 
-<img scr="https://github.com/austinnoronha/UI-References-and-Screenshots/blob/9b512be245ab3c2c07972784b6cccc1a605df45a/common-images/Nodejs%20OpenAI%20ChatGPT%20SearchBot%20Sample%20App%20with%20Bootstrap%20HTML%20CSS.png" title="">
-
-### 🏠 [Homepage](https://github.com/austinnoronha/express-and-nodejs-sample-app)
+<img alt="Nodejs OpenAI ChatGPT SearchBot Sample App with Bootstrap HTML CSS.png" src="https://github.com/austinnoronha/UI-References-and-Screenshots/blob/9b512be245ab3c2c07972784b6cccc1a605df45a/common-images/Nodejs%20OpenAI%20ChatGPT%20SearchBot%20Sample%20App%20with%20Bootstrap%20HTML%20CSS.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
 
 ## Prerequisites
 
