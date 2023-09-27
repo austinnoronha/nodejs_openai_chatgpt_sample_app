@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Quick OpenAI ChatGPT SearchBot with Node.js">
+    <meta name="author" content="Austin Noronha @buzzingcode">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Quick OpenAI ChatGPT SearchBot with Node.js</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <meta name="theme-color" content="#712cf9">
+
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+  
+        .b-example-divider {
+          width: 100%;
+          height: 3rem;
+          background-color: rgba(0, 0, 0, .1);
+          border: solid rgba(0, 0, 0, .15);
+          border-width: 1px 0;
+          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+  
+        .b-example-vr {
+          flex-shrink: 0;
+          width: 1.5rem;
+          height: 100vh;
+        }
+  
+        .bi {
+          vertical-align: -.125em;
+          fill: currentColor;
+        }
+  
+        .nav-scroller {
+          position: relative;
+          z-index: 2;
+          height: 2.75rem;
+          overflow-y: hidden;
+        }
+  
+        .nav-scroller .nav {
+          display: flex;
+          flex-wrap: nowrap;
+          padding-bottom: 1rem;
+          margin-top: -1px;
+          overflow-x: auto;
+          text-align: center;
+          white-space: nowrap;
+          -webkit-overflow-scrolling: touch;
+        }
+  
+        .btn-bd-primary {
+          --bd-violet-bg: #712cf9;
+          --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  
+          --bs-btn-font-weight: 600;
+          --bs-btn-color: var(--bs-white);
+          --bs-btn-bg: var(--bd-violet-bg);
+          --bs-btn-border-color: var(--bd-violet-bg);
+          --bs-btn-hover-color: var(--bs-white);
+          --bs-btn-hover-bg: #6528e0;
+          --bs-btn-hover-border-color: #6528e0;
+          --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+          --bs-btn-active-color: var(--bs-btn-hover-color);
+          --bs-btn-active-bg: #5a23c8;
+          --bs-btn-active-border-color: #5a23c8;
+        }
+  
+        .bd-mode-toggle {
+          z-index: 1500;
+        }
+  
+        .bd-mode-toggle .dropdown-menu .active .bi {
+          display: block !important;
+        }
+
+        /*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+
+body {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: calc(90% - 2rem);
+}
+
+
+/*
+ * Header
+ */
+
+.nav-masthead .nav-link {
+  color: rgba(255, 255, 255, .5);
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+      </style>
+</head>
+<body class="d-flex h-100 text-center text-bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+          <div>
+            <h3 class="float-md-start mb-0">SearchBot</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="https://buzzingcode.com">Home</a>
+              <a class="nav-link fw-bold py-1 px-0" href="https://buzzingcode.com">Contact</a>
+            </nav>
+          </div>
+        </header>
+      
+        <main class="px-3">
+          <h1>ChatGPT SearchBot</h1>
+          <p class="lead">A one-page template for for our simple and beautiful OpenAI ChatGPT SearchBot with Node.js.</p>
+          <div class="row g-5">
+            <div class="col-md-7 col-lg-8">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Search Form:</span>
+                </h4>
+                <form  id="myform" class="needs-validation gy-2 gx-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInput">Search Prompt</label>
+                        <input type="text" class="form-control"id="prompt" placeholder="Enter your search query/prompt" value="" required="" />
+                    </div>
+                    <hr class="my-4">
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Search &raquo;</button>
+                </form>    
+            </div>
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-primary">Chat responses:</span>
+                  <span class="badge bg-primary rounded-pill responses-count">0</span>
+                </h4>
+                <ul class="list-group mb-3 pre-scrollable" style="max-height: 45vh; overflow-y: auto;"id="responses">
+                    <li class="list-group-item d-flex justify-content-between lh-sm default-set">
+                      <div>
+                        <h6 class="my-0 text-start">Bot:</h6>
+                        <small class="text-body-secondary">Please wait...</small>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </main>
+      
+        <footer class="mt-auto text-white-50">
+          <p>Learn, Adapt &amp; Code <a href="https://buzzingcode.com/" class="text-white">BuzzingCode</a>, by <a href="https://twitter.com/buzzingcode" class="text-white">@buzzingcode</a>.</p>
+        </footer>
+      </div>
+  <h1></h1>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      const response_template = (user, msg) => {
+        const li = $('<li></li>').html('<div><h6 class="my-0 text-start">'+user+':</h6><small class="text-body-secondary">'+msg+'</small></div>').addClass('list-group-item d-flex justify-content-between lh-sm');
+        const el = $('#responses');
+        el.append(li);
+        el.animate({scrollTop: el.find('li:last').offset().top}, 100);
+
+        var cnt = el.find('li').length || 0;
+        $('.responses-count').text(cnt);
+      }
+      $('#myform').submit(function(event) {
+        event.preventDefault();
+        const my_prompt = $('#prompt').val();
+        if($('#responses > li').hasClass('default-set')){
+            $('#responses').html('');
+        }
+        response_template('User', my_prompt);
+        
+        $.ajax({
+          url: '/search-bot',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ my_prompt }),
+          success: function(response) {
+            response_template('Bot', response);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

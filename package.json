@@ -1,0 +1,21 @@
+{
+  "name": "nodejs_openai_chatgpt_sample_app",
+  "version": "1.0.0",
+  "description": "A small script to generate a Application or Microservice Architecture Diagram with <a href=\"https://graphviz.org/download/\">Graphviz</a> and <a href=\"https://diagrams.mingrammer.com/\">Diagrams</a> lib Diagrams.",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "openai": "^4.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
