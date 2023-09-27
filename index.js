@@ -33,9 +33,10 @@ app.post("/search-bot", (req, res) => {
 
   openai.completions
     .create({
-      prompt: `search ${my_prompt}`,
-      model: "text-davinci-002", //'gpt-3.5-turbo'
-      temperature: 0.5,
+        role:'system',
+        prompt: `search ${my_prompt}`,
+        model: "text-davinci-002", //'gpt-3.5-turbo'
+        temperature: 0.5,
     })
     .then((response) => {
       res.send(response.choices[0].text);
@@ -47,7 +48,7 @@ app.post("/search-bot", (req, res) => {
         // console.log(err.headers); // {server: 'nginx', ...}
         // console.log(err.error.code); // Error code from OpenAI
         myLog(`[openai:error] type: ${err.name}\tcode: ${err.error.code}\tmessage: ${err.error.message}`); // Error message from OpenAI
-        res.send("Oops! technical issues, try again later.");
+        res.send(`Oops! technical issues. ${err.error.code}: ${err.error.message}`);
       } else {
         throw err;
       }
